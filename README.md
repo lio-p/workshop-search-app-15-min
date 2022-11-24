@@ -1,70 +1,36 @@
-# Getting Started with Create React App
+# Build a search application in 15 minutes 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a sample code to show you how to use Elastic Enterprise Search and Search UI to quickly build a search application
 
-## Available Scripts
+# Pre-reqs
 
-In the project directory, you can run:
+- [Elastic Cloud](https://cloud.elastic.co/) Deployment created, new accounts can sign-up for a limitless 14-day free trial to POC building a solution like this
+- Enable [CORS](https://docs.elastic.co/search-ui/tutorials/elasticsearch#enabling-cors) on Elasticsearch
+- Ingest movies data into search-movies index
 
-### `npm start`
+## Load data
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Once your deployment is ready, you can load the sample data. 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+You can use the script [index_es.py](index_es.py) to load the data into Elasticsearch.
 
-### `npm test`
+Pass the Cloud ID and API Key as part of the script execution. Example: `python3 index_es.py --cloud_id xyz --api_key xyz`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Prepare the application
 
-### `npm run build`
+Edit the file `.env` to provide the following attributes: 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- REACT_APP_AS_SEARCH_API_KEY: Get the [search key](https://www.elastic.co/guide/en/app-search/current/search-guide.html) from the App Search engine credentials.
+- REACT_APP_AS_BASE_URL: Get the endpoint from the App Search engine credentials.
+- REACT_APP_ES_CLOUD_ID: Get the Cloud ID from the Elastic Cloud deployment UI
+- REACT_APP_ES_API_KEY: Generate an [Api Key](https://www.elastic.co/guide/en/kibana/master/api-keys.html) from Kibana
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## Run the application locally
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Install the dependencies: `yarn install`
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Go back to the root folder, run the application: `yarn start`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Access the application on [http://localhost:3000])(http://localhost:3000)
